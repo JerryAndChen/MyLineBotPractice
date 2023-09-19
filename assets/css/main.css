@@ -1,0 +1,27 @@
+﻿@media screen and (max-device-width:480px){
+    table#center{
+        width:80%;
+        font-size:200%;
+    }
+    input[type=text]{
+        font-size:140%;
+    }
+    .banner{
+        font-size:140%;
+    }
+    .title{
+        font-size:200%;
+    }
+}
+@media screen and (min-width:720px){
+    /*table{
+        width:500px;
+    }*/
+}
+table{
+    border-collapse:collapse;
+}
+th, td{
+    border:1px solid black;
+    padding:8px;
+}

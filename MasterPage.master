@@ -1,0 +1,49 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>MyLineLIFF</title>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <style>
+        .Mst_Banner{
+            width:100%;
+            height:80px;
+            /*position:fixed;*/
+            display:flex;
+            align-items:center;
+            background-color:gray;
+            padding:0px 16px;
+        }
+        .Mst_title{
+            font-weight:bold;
+            font-size:20px;
+            color:#fff;
+        }
+        .Mst_HyperLink{
+            display:inline-block;
+            padding:8px;
+            color:#fff;
+        }
+    </style>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <div class="Mst_Banner banner">
+            <div class="Mst_title title">會員登入</div>
+            <%--<div class="Mst_HyperLink">Link1</div>
+            <div class="Mst_HyperLink">Link2</div>
+            <div class="Mst_HyperLink">Link3</div>--%>
+        </div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+            
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
