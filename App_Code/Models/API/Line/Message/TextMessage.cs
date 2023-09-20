@@ -4,35 +4,21 @@ using System.Linq;
 using System.Web;
 
 /// <summary>
-/// Messages 的摘要描述
+/// TextMessage 的摘要描述
 /// </summary>
-public class Messages
+public class TextMessage:ILineMessage
 {
-    private string _type;
+    private string _type = "text";
     private string _text;
-    public Messages()
+    public TextMessage()
     {
         //
         // TODO: 在這裡新增建構函式邏輯
         //
     }
-    public Messages(string type, string text)
+    public TextMessage(string text)
     {
-        _type = type;
         _text = text;
-    }
-
-    public string type
-    {
-        get
-        {
-            return _type;
-        }
-
-        set
-        {
-            _type = value;
-        }
     }
 
     public string text
@@ -45,6 +31,19 @@ public class Messages
         set
         {
             _text = value;
+        }
+    }
+
+    public string type
+    {
+        get
+        {
+            return _type;
+        }
+
+        set
+        {
+            _type = "text";
         }
     }
 }
