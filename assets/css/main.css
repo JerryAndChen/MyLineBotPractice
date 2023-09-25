@@ -1,27 +1,42 @@
-﻿@media screen and (max-device-width:480px){
-    table#center{
+﻿/* mobile */
+@media (max-width: 600px) {
+    body {
+        font-size: 20px;
+    }
+    table{
         width:80%;
-        font-size:200%;
     }
     input[type=text]{
-        font-size:140%;
-    }
-    .banner{
-        font-size:140%;
-    }
-    .title{
-        font-size:200%;
+        box-sizing:border-box;
+        border-radius:5px;
+        border-width:1px;
+        width:100%;
+        font-size:20px;
     }
 }
+
 @media screen and (min-width:720px){
     /*table{
         width:500px;
     }*/
 }
+body{
+    margin:0px;
+    /*overflow-x:hidden;*/
+}
 table{
     border-collapse:collapse;
+}
+th{
+    white-space:nowrap;
 }
 th, td{
     border:1px solid black;
     padding:8px;
+}
+.center{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
 }
