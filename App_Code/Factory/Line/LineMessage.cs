@@ -40,6 +40,16 @@ public class LineMessage
                     };
                     lineMessage.messages.Add(stickerSingle);
                     break;
+                case "image":
+                    ImageMessage imageMessage = (ImageMessage)messageList[i];
+                    var imageSingle = new
+                    {
+                        type = "image",
+                        originalContentUrl = imageMessage.OriginalContentUrl,
+                        previewImageUrl = imageMessage.PreviewImageUrl
+                    };
+                    lineMessage.messages.Add(imageSingle);
+                    break;
                 case "bubble":
                     BubbleMessage bubbleMessage = (BubbleMessage)messageList[i];
                     object header = null, hero = null, body = null, footer = null;

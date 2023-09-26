@@ -20,6 +20,14 @@
             txtBirth.value = value;
             closeDialog();
         }
+        function registerSuccess(msg) {
+            liff_sendMessages(msg)
+                .then((log) => {
+                    console.log(log);
+                    showMsgAndGoto("註冊成功", "index.aspx");
+                })
+                .catch((e) => console.log(e));
+        }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">

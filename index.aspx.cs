@@ -12,7 +12,8 @@ public partial class index : System.Web.UI.Page
         var userId = Session["userId"] as string;
         if (userId == null)
         {
-            Response.Redirect("xx.html");
+            //Response.Redirect("xx.html");
+            Response.Redirect("LiffInit.aspx");
         }
 
         if (!checkIfUserExists(userId))

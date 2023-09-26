@@ -33,28 +33,27 @@
     <script type="text/javascript" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <script type="text/javascript" src="js/function.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            liff.init({ liffId: "2000626468-ZQE950nX", withLoginOnExternalBrowser: true });
-        });
         function liff_sendMessages(msg) {
-            console.log(typeof msg.messages);
-            liff.init({ liffId: "2000626468-ZQE950nX", withLoginOnExternalBrowser: true });
-            liff.ready.then(() => {
-                //用戶發送訊息 - 傳給當前 Line Bot
-                if (!liff.isInClient()) {
-                    // alert('This button is unavailable as LIFF is currently being opened in an external browser.');
-                    console.log("於外開瀏覽器無法使用此功能");
-                } else {
-                    liff.sendMessages(msg.messages)
-                        .then(() => {
-                            console.log('已發送訊息');
-                        })
-                        .catch((error) => {
-                            console.log('發送訊息失敗: ' + error);
-                        });
-                }
+            return new Promise(function (resolve, reject) {
+                liff.init({ liffId: "2000626468-ZQE950nX", withLoginOnExternalBrowser: true });
+                liff.ready.then(() => {
+                    //用戶發送訊息 - 傳給當前 Line Bot
+                    if (!liff.isInClient()) {
+                        // alert('This button is unavailable as LIFF is currently being opened in an external browser.');
+                        //於外開瀏覽器無法使用此功能
+                        resolve("於外開瀏覽器無法使用此功能");
+                    } else {
+                        liff.sendMessages(msg.messages)
+                            .then(() => {
+                                resolve("已發送訊息");
+                            })
+                            .catch((error) => {
+                                //發送訊息失敗
+                                reject("發送訊息失敗"+error);
+                            });
+                    }
+                });
             });
-
         }
     </script>
     <asp:ContentPlaceHolder id="head" runat="server">

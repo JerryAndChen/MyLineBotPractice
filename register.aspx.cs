@@ -7,13 +7,6 @@ public partial class register : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //List<ILineMessage> messageList = new List<ILineMessage>();
-        //messageList.Add(new TextMessage("您好, 已註冊會員成功"));
-        //List<Button> buttons = new List<Button>();
-        //buttons.Add(new Button("uri", "進入會員中心", "https://liff.line.me/2000626468-ZQE950nX"));
-        //messageList.Add(new BubbleMessage("您好", "", "您已註冊會員成功", "通知", buttons));
-        //string jsonMsg = JsonConvert.SerializeObject(LineMessage.createMessage(messageList));
-        //ClientScript.RegisterStartupScript(typeof(Page), "registerSuccessful", "liff_sendMessages(" + jsonMsg + ");", true);
         //check if Session["userId"] not exist, go to xx.html
         if (Session["userId"] == null)
         {
@@ -33,7 +26,8 @@ public partial class register : System.Web.UI.Page
                 buttons.Add(new Button("uri", "進入會員中心", "https://liff.line.me/2000626468-ZQE950nX"));
                 messageList.Add(new BubbleMessage("您好", "", "您已註冊會員成功", "訊息通知", buttons));
                 string jsonMsg = JsonConvert.SerializeObject(LineMessage.createMessage(messageList));
-                ClientScript.RegisterStartupScript(typeof(Page), "registerSuccessful", "liff_sendMessages(" + jsonMsg + ");showMsgAndGoto(\"註冊成功\",\"index.aspx\");", true);
+                ClientScript.RegisterStartupScript(typeof(Page), "registerSuccessful", "registerSuccess(" + jsonMsg + ");", true);
+                //ClientScript.RegisterStartupScript(typeof(Page), "registerSuccessful", "liff_sendMessages(" + jsonMsg + ");showMsgAndGoto(\"註冊成功\",\"index.aspx\");", true);
                 //Response.Redirect("index.aspx");
             }
         }
