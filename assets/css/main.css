@@ -1,5 +1,129 @@
-﻿/* mobile */
-@media (max-width: 600px) {
+﻿/* Basic Setting */
+body {
+    margin: 0px;
+    /*overflow-x:hidden;*/
+    overflow-y:scroll;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    white-space: nowrap;
+    background-color:#f5f5f5;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+ul{
+    padding-inline-start:20px;
+}
+
+caption{
+    padding:8px;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.h_center{
+    position:absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.field_RO{
+    border: none;
+    border-bottom: 1px dashed black;
+}
+.field_NONE{
+    display:none;
+}
+.tbList {
+    margin: auto;
+}
+
+.tbDiv {
+    width: 30%;
+}
+.hyper_btn {
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+    color: #3366b2;
+    cursor:pointer;
+    font-size:16px;
+}
+.btn_main {
+    background-color: #ddd;
+    /*color: #fff;*/
+    border: 1px solid grey;
+    border-radius: 3px;
+}
+.require:before{
+    content:"*";
+    color:red;
+}
+.pgLink, .pgLabel{
+    padding:2px;
+}
+
+/* Master Page setting*/
+.Mst_Banner {
+    width: 100%;
+    height: 80px;
+    /*position:fixed;*/
+    display: flex;
+    align-items: center;
+    background-color: gray;
+    padding: 0px 16px;
+    box-sizing: border-box; /* box 對到 border 的位置*/
+}
+.Mst_title {
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+}
+.Mst_HyperLink {
+    display: inline-block;
+    padding: 8px;
+    color: #fff;
+}
+.Mst_menu_icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.Mst_Sidebar {
+    position: fixed;
+    height: 100%;
+    width: 200px;
+    background-color: #ddd;
+    z-index: 2;
+}
+.Mst_menu_node, .Mst_menu_parent_node {
+    font-size: 16px;
+    padding: 8px;
+    list-style: none;
+    cursor: pointer;
+}
+.Mst_menu_node:hover{
+    background-color:grey;
+    color:#fff;
+}
+
+
+/****** RWD ******/
+
+/* mobile */
+@media screen and (max-width: 600px) {
     body {
         font-size: 20px;
     }
@@ -13,30 +137,24 @@
         width:100%;
         font-size:20px;
     }
+    select{
+        font-size:16px;
+    }
+    .Mst_Sidebar{
+        width:100%;
+    }
+    .tbList {
+        width: 100%;
+        overflow-x: auto;
+        display:block;
+    }
+    .tbDiv{
+        width:100%;
+    }
 }
 
 @media screen and (min-width:720px){
     /*table{
         width:500px;
     }*/
-}
-body{
-    margin:0px;
-    /*overflow-x:hidden;*/
-}
-table{
-    border-collapse:collapse;
-}
-th{
-    white-space:nowrap;
-}
-th, td{
-    border:1px solid black;
-    padding:8px;
-}
-.center{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
 }

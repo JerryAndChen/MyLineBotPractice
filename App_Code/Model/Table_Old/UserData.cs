@@ -16,6 +16,10 @@ public class UserData
     private string _phone;
     private string _email;
     private string _birth;
+    private string _roleId;
+    private string _cityId;
+    private string _districtId;
+    private string _storeId;
     private string _registerTime;
     private string _lastLoginTime;
     public UserData()
@@ -126,6 +130,58 @@ public class UserData
         set
         {
             _birth = value;
+        }
+    }
+
+    public string RoleId
+    {
+        get
+        {
+            return _roleId;
+        }
+
+        set
+        {
+            _roleId = value;
+        }
+    }
+
+    public string CityId
+    {
+        get
+        {
+            return _cityId;
+        }
+
+        set
+        {
+            _cityId = value;
+        }
+    }
+
+    public string DistrictId
+    {
+        get
+        {
+            return _districtId;
+        }
+
+        set
+        {
+            _districtId = value;
+        }
+    }
+
+    public string StoreId
+    {
+        get
+        {
+            return _storeId;
+        }
+
+        set
+        {
+            _storeId = value;
         }
     }
 

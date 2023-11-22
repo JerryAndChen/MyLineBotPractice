@@ -8,3 +8,7 @@ function showMsgAndGoto(e, url) {
     alert(e);
     window.location.href = url;
 }
+function showMsgAndGoBack(e) {
+    alert(e);
+    window.history.go(-1);
+}

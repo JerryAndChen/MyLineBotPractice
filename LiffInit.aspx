@@ -6,7 +6,7 @@
 <head runat="server">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Liff Init</title>
+    <title>登入中</title>
     <style>
         .centerText{
             position:absolute;
@@ -39,7 +39,8 @@
                             var json = JSON.parse(x);
                             if (json.Pass == true) {
                                 //導向index頁面
-                                form1.action = "index.aspx";
+                                //form1.action = json.Action;
+                                form1.action = hfState.value || json.Action;
                                 form1.submit();
                             }else
                                 alert(json.ErrorMsg);
@@ -64,6 +65,7 @@
             Loading...
         </div>
         <asp:HiddenField ID="hfLiffId" runat="server" />
+        <asp:HiddenField ID="hfState" runat="server" />
         <input type="hidden" id="userId" name="userId" />
         <input type="hidden" id="userName" name="userName" />
         <input type="hidden" id="userPicUrl" name="userPicUrl" />

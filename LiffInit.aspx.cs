@@ -10,5 +10,6 @@ public partial class LiffInit : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         hfLiffId.Value = System.Configuration.ConfigurationManager.AppSettings["liff_id"];
+        hfState.Value = Request["state"];
     }
 }

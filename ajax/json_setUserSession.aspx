@@ -13,15 +13,32 @@
         else
         {
             Session["userId"] = userId;
-            info.Pass = true;
-            info.ErrorMsg = "取得使用者資訊";
+            user_data user = GetUserData(userId);
+            if(user == null)
+            {
+                info.Pass = true;
+                info.Action = "register.aspx";
+            }
+            else
+            {
+                Session[WebConstants.Session_Current_User] = user;
+                info.Pass = true;
+                info.Action = "index.aspx";
+            }
         }
         Response.Write(JsonConvert.SerializeObject(info));
+    }
+    private user_data GetUserData(string userId)
+    {
+        user_data_repo user_repo = new user_data_repo();
+        user_data user = user_repo.doQueryOne(u => u.userId == userId);
+        return user;
     }
     class info
     {
         bool pass;
         string errorMsg;
+        string action;
 
         public bool Pass
         {
@@ -46,6 +63,19 @@
             set
             {
                 errorMsg = value;
+            }
+        }
+
+        public string Action
+        {
+            get
+            {
+                return action;
+            }
+
+            set
+            {
+                action = value;
             }
         }
     }
