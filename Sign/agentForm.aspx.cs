@@ -38,14 +38,14 @@ public partial class Sign_agentForm : System.Web.UI.Page
             {
                 if (CreateData())
                 {
-                    //List<ILineMessage> messageList = new List<ILineMessage>();
-                    //messageList.Add(new TextMessage("人力支援需求資訊已張貼至系統，待支援者申請配對"));
-                    //List<Button> buttons = new List<Button>();
-                    //buttons.Add(new Button("uri", "查詢支援配對申請", "https://liff.line.me/2000626468-ZQE950nX/?state=Sign/applRecord.aspx?id="+id));
-                    //messageList.Add(new BubbleMessage("您好", "", "已張貼人力支援需求", "已張貼需求資訊，待支援者申請配對", buttons));
-                    //string jsonMsg = JsonConvert.SerializeObject(LineMessage.createMessage(messageList));
-                    //ClientScript.RegisterStartupScript(typeof(Page), "CreateAgentDataSuccessful", "createSuccess(" + jsonMsg + ");", true);
-                    Util.Common.sendMail();
+                    List<ILineMessage> messageList = new List<ILineMessage>();
+                    messageList.Add(new TextMessage("人力支援需求資訊已張貼至系統，待支援者申請配對"));
+                    List<Button> buttons = new List<Button>();
+                    buttons.Add(new Button("uri", "查詢支援配對申請", "https://liff.line.me/2000626468-ZQE950nX/?state=Sign/applRecord.aspx?id=" + id));
+                    messageList.Add(new BubbleMessage("您好", "", "已張貼人力支援需求", "已張貼需求資訊，待支援者申請配對", buttons));
+                    string jsonMsg = JsonConvert.SerializeObject(LineMessage.createMessage(messageList));
+                    ClientScript.RegisterStartupScript(typeof(Page), "CreateAgentDataSuccessful", "createSuccess(" + jsonMsg + ");", true);
+                    //Util.Common.sendMail();
                 }
             }else if(btn.CommandName == "update")
             {

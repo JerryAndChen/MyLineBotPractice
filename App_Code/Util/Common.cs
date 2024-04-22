@@ -33,39 +33,25 @@ namespace Util
             string dateTime = date + " " + hour + ":" + time;
             return DateTime.Parse(dateTime);
         }
-        public static void testAsync()
-        {
-
-        }
         public static void sendMail()
         {
-            //System.Console.WriteLine("jerryTest");
             System.Web.HttpContext.Current.Response.BufferOutput = false;
             try
             {
-                for(int i=0; i<100; i++)
-                {
-                    System.Net.NetworkCredential credential = new System.Net.NetworkCredential("jerryamo0816@gmail.com", "vnrutvzjhrtnvvmb");
-                    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                    MailMessage message = new MailMessage("system@HelpSeeker.mail.com", "Jerry.Chen@e21mm.com");
-                    //message.Subject = "title - jerryTest";
-                    message.Body = "this is a test";
-                    //string completeMsg = "complete";
-                    smtp.EnableSsl = true;
-                    smtp.Credentials = credential;
-                    string done = "ok";
-                    smtp.SendAsync(message,done);
-                    //smtp.Send(message);
-                    System.Web.HttpContext.Current.Response.Write("jerryTest");
-                }
+                System.Net.NetworkCredential credential = new System.Net.NetworkCredential("jerryamo0816@gmail.com", "vnrutvzjhrtnvvmb");
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                MailMessage message = new MailMessage("system@HelpSeeker.mail.com", "Jerry.Chen@e21mm.com");
+                message.Subject = "title - jerryTest";
+                message.Body = "this is a test";
+                smtp.EnableSsl = true;
+                smtp.Credentials = credential;
+                smtp.Send(message);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Util.Log.LogToFile("send email failed", e.Message);
             }
             
-            //smtp.SendAsync(message, completeMsg);
-            //message.Dispose();
         }
         public static string getAppSetting(string key)
         {
@@ -93,20 +79,12 @@ namespace Util
                 //string done = "ok";
                 //smtp.SendAsync(message, done);
                 smtp.Send(message);
-                //System.Web.HttpContext.Current.Response.Write("jerryTest");
             }
             catch (Exception e)
             {
                 Util.Log.LogToFile("send email failed", e.Message);
             }
 
-            //smtp.SendAsync(message, completeMsg);
-            //message.Dispose();
-        }
-        public void ShowMsgAndGoTo(string msg, string location)
-        {
-            //ClientScript.RegisterStartupScript(typeof(Page), "alreadyExistsAccount", "showMsg(\"您已擁有會員帳號，請由首頁登入\");", true);
-            //HttpContext.Current.Response.Redirect("login.aspx");
         }
     }
 }
